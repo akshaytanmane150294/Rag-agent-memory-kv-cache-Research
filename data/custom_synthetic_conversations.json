@@ -1,0 +1,822 @@
+[
+  {
+    "conversation_id": 0,
+    "turns": [
+      {
+        "query": "Hi, my name is Rohan and I'm on the Pro Plan.",
+        "fact_to_store": "Customer name is Rohan, subscribed to Pro Plan.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm based in Chennai, just so you know for billing.",
+        "fact_to_store": "Customer is based in Chennai.",
+        "gold_answer": null
+      },
+      {
+        "query": "My account ID is ACC-1000.",
+        "fact_to_store": "Customer account ID is ACC-1000.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm writing in about a feature request.",
+        "fact_to_store": "Customer's open issue: feature request.",
+        "gold_answer": null
+      },
+      {
+        "query": "How long does a refund usually take?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "check_billing_history"
+      },
+      {
+        "query": "How long does a refund usually take?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "look_up_account"
+      },
+      {
+        "query": "Can I get an invoice emailed to me?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "look_up_account"
+      },
+      {
+        "query": "Do you support two-factor authentication?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "escalate_to_human"
+      },
+      {
+        "query": "Can you check what plans are available for upgrade?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "look_up_account"
+      },
+      {
+        "query": "Can you check what plans are available for upgrade?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "check_billing_history"
+      },
+      {
+        "query": "How long does a refund usually take?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "look_up_account"
+      },
+      {
+        "query": "Just to confirm, what plan am I on?",
+        "fact_to_store": null,
+        "gold_answer": "Pro Plan"
+      },
+      {
+        "query": "What's my account ID again?",
+        "fact_to_store": null,
+        "gold_answer": "ACC-1000"
+      },
+      {
+        "query": "What issue did I originally contact you about?",
+        "fact_to_store": null,
+        "gold_answer": "feature request"
+      }
+    ]
+  },
+  {
+    "conversation_id": 1,
+    "turns": [
+      {
+        "query": "Hi, my name is Karan and I'm on the Enterprise Plan.",
+        "fact_to_store": "Customer name is Karan, subscribed to Enterprise Plan.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm based in Delhi, just so you know for billing.",
+        "fact_to_store": "Customer is based in Delhi.",
+        "gold_answer": null
+      },
+      {
+        "query": "My account ID is ACC-1001.",
+        "fact_to_store": "Customer account ID is ACC-1001.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm writing in about a refund request.",
+        "fact_to_store": "Customer's open issue: refund request.",
+        "gold_answer": null
+      },
+      {
+        "query": "Do you support two-factor authentication?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "Can you check what plans are available for upgrade?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "check_billing_history"
+      },
+      {
+        "query": "Can I get an invoice emailed to me?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "escalate_to_human"
+      },
+      {
+        "query": "Is there a mobile app for this?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "How long does a refund usually take?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "check_billing_history"
+      },
+      {
+        "query": "Is there a mobile app for this?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "look_up_account"
+      },
+      {
+        "query": "Can you check what plans are available for upgrade?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "escalate_to_human"
+      },
+      {
+        "query": "Just to confirm, what plan am I on?",
+        "fact_to_store": null,
+        "gold_answer": "Enterprise Plan"
+      },
+      {
+        "query": "What's my account ID again?",
+        "fact_to_store": null,
+        "gold_answer": "ACC-1001"
+      },
+      {
+        "query": "What issue did I originally contact you about?",
+        "fact_to_store": null,
+        "gold_answer": "refund request"
+      }
+    ]
+  },
+  {
+    "conversation_id": 2,
+    "turns": [
+      {
+        "query": "Hi, my name is Rohan and I'm on the Team Plan.",
+        "fact_to_store": "Customer name is Rohan, subscribed to Team Plan.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm based in Bengaluru, just so you know for billing.",
+        "fact_to_store": "Customer is based in Bengaluru.",
+        "gold_answer": null
+      },
+      {
+        "query": "My account ID is ACC-1002.",
+        "fact_to_store": "Customer account ID is ACC-1002.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm writing in about a password reset.",
+        "fact_to_store": "Customer's open issue: password reset.",
+        "gold_answer": null
+      },
+      {
+        "query": "Is there a mobile app for this?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "look_up_account"
+      },
+      {
+        "query": "Can I get an invoice emailed to me?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "escalate_to_human"
+      },
+      {
+        "query": "Do you support two-factor authentication?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "look_up_account"
+      },
+      {
+        "query": "What are your support hours?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "look_up_account"
+      },
+      {
+        "query": "Do you support two-factor authentication?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "Can I get an invoice emailed to me?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "Do you support two-factor authentication?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "check_billing_history"
+      },
+      {
+        "query": "Just to confirm, what plan am I on?",
+        "fact_to_store": null,
+        "gold_answer": "Team Plan"
+      },
+      {
+        "query": "What's my account ID again?",
+        "fact_to_store": null,
+        "gold_answer": "ACC-1002"
+      },
+      {
+        "query": "What issue did I originally contact you about?",
+        "fact_to_store": null,
+        "gold_answer": "password reset"
+      }
+    ]
+  },
+  {
+    "conversation_id": 3,
+    "turns": [
+      {
+        "query": "Hi, my name is Rohan and I'm on the Pro Plan.",
+        "fact_to_store": "Customer name is Rohan, subscribed to Pro Plan.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm based in Chennai, just so you know for billing.",
+        "fact_to_store": "Customer is based in Chennai.",
+        "gold_answer": null
+      },
+      {
+        "query": "My account ID is ACC-1003.",
+        "fact_to_store": "Customer account ID is ACC-1003.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm writing in about a login issue.",
+        "fact_to_store": "Customer's open issue: login issue.",
+        "gold_answer": null
+      },
+      {
+        "query": "Is there a mobile app for this?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "look_up_account"
+      },
+      {
+        "query": "How long does a refund usually take?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "look_up_account"
+      },
+      {
+        "query": "What are your support hours?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "What are your support hours?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "How long does a refund usually take?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "Is there a mobile app for this?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "check_billing_history"
+      },
+      {
+        "query": "Can I get an invoice emailed to me?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "Just to confirm, what plan am I on?",
+        "fact_to_store": null,
+        "gold_answer": "Pro Plan"
+      },
+      {
+        "query": "What's my account ID again?",
+        "fact_to_store": null,
+        "gold_answer": "ACC-1003"
+      },
+      {
+        "query": "What issue did I originally contact you about?",
+        "fact_to_store": null,
+        "gold_answer": "login issue"
+      }
+    ]
+  },
+  {
+    "conversation_id": 4,
+    "turns": [
+      {
+        "query": "Hi, my name is Rohan and I'm on the Basic Plan.",
+        "fact_to_store": "Customer name is Rohan, subscribed to Basic Plan.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm based in Hyderabad, just so you know for billing.",
+        "fact_to_store": "Customer is based in Hyderabad.",
+        "gold_answer": null
+      },
+      {
+        "query": "My account ID is ACC-1004.",
+        "fact_to_store": "Customer account ID is ACC-1004.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm writing in about a login issue.",
+        "fact_to_store": "Customer's open issue: login issue.",
+        "gold_answer": null
+      },
+      {
+        "query": "How long does a refund usually take?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "escalate_to_human"
+      },
+      {
+        "query": "What are your support hours?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "Can I get an invoice emailed to me?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "check_billing_history"
+      },
+      {
+        "query": "Can I get an invoice emailed to me?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "Can you check what plans are available for upgrade?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "check_billing_history"
+      },
+      {
+        "query": "Can you check what plans are available for upgrade?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "What are your support hours?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "Just to confirm, what plan am I on?",
+        "fact_to_store": null,
+        "gold_answer": "Basic Plan"
+      },
+      {
+        "query": "What's my account ID again?",
+        "fact_to_store": null,
+        "gold_answer": "ACC-1004"
+      },
+      {
+        "query": "What issue did I originally contact you about?",
+        "fact_to_store": null,
+        "gold_answer": "login issue"
+      }
+    ]
+  },
+  {
+    "conversation_id": 5,
+    "turns": [
+      {
+        "query": "Hi, my name is Rohan and I'm on the Basic Plan.",
+        "fact_to_store": "Customer name is Rohan, subscribed to Basic Plan.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm based in Hyderabad, just so you know for billing.",
+        "fact_to_store": "Customer is based in Hyderabad.",
+        "gold_answer": null
+      },
+      {
+        "query": "My account ID is ACC-1005.",
+        "fact_to_store": "Customer account ID is ACC-1005.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm writing in about a feature request.",
+        "fact_to_store": "Customer's open issue: feature request.",
+        "gold_answer": null
+      },
+      {
+        "query": "How long does a refund usually take?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "escalate_to_human"
+      },
+      {
+        "query": "What are your support hours?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "escalate_to_human"
+      },
+      {
+        "query": "How long does a refund usually take?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "How long does a refund usually take?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "check_billing_history"
+      },
+      {
+        "query": "Can I get an invoice emailed to me?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "Can I get an invoice emailed to me?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "escalate_to_human"
+      },
+      {
+        "query": "Do you support two-factor authentication?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "escalate_to_human"
+      },
+      {
+        "query": "Just to confirm, what plan am I on?",
+        "fact_to_store": null,
+        "gold_answer": "Basic Plan"
+      },
+      {
+        "query": "What's my account ID again?",
+        "fact_to_store": null,
+        "gold_answer": "ACC-1005"
+      },
+      {
+        "query": "What issue did I originally contact you about?",
+        "fact_to_store": null,
+        "gold_answer": "feature request"
+      }
+    ]
+  },
+  {
+    "conversation_id": 6,
+    "turns": [
+      {
+        "query": "Hi, my name is Vikram and I'm on the Basic Plan.",
+        "fact_to_store": "Customer name is Vikram, subscribed to Basic Plan.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm based in Delhi, just so you know for billing.",
+        "fact_to_store": "Customer is based in Delhi.",
+        "gold_answer": null
+      },
+      {
+        "query": "My account ID is ACC-1006.",
+        "fact_to_store": "Customer account ID is ACC-1006.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm writing in about a password reset.",
+        "fact_to_store": "Customer's open issue: password reset.",
+        "gold_answer": null
+      },
+      {
+        "query": "What are your support hours?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "look_up_account"
+      },
+      {
+        "query": "Can you check what plans are available for upgrade?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "look_up_account"
+      },
+      {
+        "query": "How long does a refund usually take?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "check_billing_history"
+      },
+      {
+        "query": "Can I get an invoice emailed to me?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "escalate_to_human"
+      },
+      {
+        "query": "Do you support two-factor authentication?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "look_up_account"
+      },
+      {
+        "query": "What are your support hours?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "escalate_to_human"
+      },
+      {
+        "query": "Do you support two-factor authentication?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "escalate_to_human"
+      },
+      {
+        "query": "Just to confirm, what plan am I on?",
+        "fact_to_store": null,
+        "gold_answer": "Basic Plan"
+      },
+      {
+        "query": "What's my account ID again?",
+        "fact_to_store": null,
+        "gold_answer": "ACC-1006"
+      },
+      {
+        "query": "What issue did I originally contact you about?",
+        "fact_to_store": null,
+        "gold_answer": "password reset"
+      }
+    ]
+  },
+  {
+    "conversation_id": 7,
+    "turns": [
+      {
+        "query": "Hi, my name is Sneha and I'm on the Pro Plan.",
+        "fact_to_store": "Customer name is Sneha, subscribed to Pro Plan.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm based in Chennai, just so you know for billing.",
+        "fact_to_store": "Customer is based in Chennai.",
+        "gold_answer": null
+      },
+      {
+        "query": "My account ID is ACC-1007.",
+        "fact_to_store": "Customer account ID is ACC-1007.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm writing in about a billing error.",
+        "fact_to_store": "Customer's open issue: billing error.",
+        "gold_answer": null
+      },
+      {
+        "query": "Can I get an invoice emailed to me?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "Can I get an invoice emailed to me?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "Can you check what plans are available for upgrade?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "What are your support hours?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "check_billing_history"
+      },
+      {
+        "query": "What are your support hours?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "look_up_account"
+      },
+      {
+        "query": "Can I get an invoice emailed to me?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "Do you support two-factor authentication?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "check_billing_history"
+      },
+      {
+        "query": "Just to confirm, what plan am I on?",
+        "fact_to_store": null,
+        "gold_answer": "Pro Plan"
+      },
+      {
+        "query": "What's my account ID again?",
+        "fact_to_store": null,
+        "gold_answer": "ACC-1007"
+      },
+      {
+        "query": "What issue did I originally contact you about?",
+        "fact_to_store": null,
+        "gold_answer": "billing error"
+      }
+    ]
+  },
+  {
+    "conversation_id": 8,
+    "turns": [
+      {
+        "query": "Hi, my name is Rohan and I'm on the Team Plan.",
+        "fact_to_store": "Customer name is Rohan, subscribed to Team Plan.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm based in Chennai, just so you know for billing.",
+        "fact_to_store": "Customer is based in Chennai.",
+        "gold_answer": null
+      },
+      {
+        "query": "My account ID is ACC-1008.",
+        "fact_to_store": "Customer account ID is ACC-1008.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm writing in about a password reset.",
+        "fact_to_store": "Customer's open issue: password reset.",
+        "gold_answer": null
+      },
+      {
+        "query": "Do you support two-factor authentication?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "check_billing_history"
+      },
+      {
+        "query": "How long does a refund usually take?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "How long does a refund usually take?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "look_up_account"
+      },
+      {
+        "query": "Do you support two-factor authentication?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "What are your support hours?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "look_up_account"
+      },
+      {
+        "query": "Can you check what plans are available for upgrade?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "Is there a mobile app for this?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "check_billing_history"
+      },
+      {
+        "query": "Just to confirm, what plan am I on?",
+        "fact_to_store": null,
+        "gold_answer": "Team Plan"
+      },
+      {
+        "query": "What's my account ID again?",
+        "fact_to_store": null,
+        "gold_answer": "ACC-1008"
+      },
+      {
+        "query": "What issue did I originally contact you about?",
+        "fact_to_store": null,
+        "gold_answer": "password reset"
+      }
+    ]
+  },
+  {
+    "conversation_id": 9,
+    "turns": [
+      {
+        "query": "Hi, my name is Aditi and I'm on the Basic Plan.",
+        "fact_to_store": "Customer name is Aditi, subscribed to Basic Plan.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm based in Hyderabad, just so you know for billing.",
+        "fact_to_store": "Customer is based in Hyderabad.",
+        "gold_answer": null
+      },
+      {
+        "query": "My account ID is ACC-1009.",
+        "fact_to_store": "Customer account ID is ACC-1009.",
+        "gold_answer": null
+      },
+      {
+        "query": "I'm writing in about a billing error.",
+        "fact_to_store": "Customer's open issue: billing error.",
+        "gold_answer": null
+      },
+      {
+        "query": "Can you check what plans are available for upgrade?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "escalate_to_human"
+      },
+      {
+        "query": "Can you check what plans are available for upgrade?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "check_billing_history"
+      },
+      {
+        "query": "How long does a refund usually take?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "escalate_to_human"
+      },
+      {
+        "query": "Do you support two-factor authentication?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "check_billing_history"
+      },
+      {
+        "query": "Is there a mobile app for this?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "escalate_to_human"
+      },
+      {
+        "query": "How long does a refund usually take?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "check_billing_history"
+      },
+      {
+        "query": "Can I get an invoice emailed to me?",
+        "fact_to_store": null,
+        "gold_answer": null,
+        "tool_call": "search_knowledge_base"
+      },
+      {
+        "query": "Just to confirm, what plan am I on?",
+        "fact_to_store": null,
+        "gold_answer": "Basic Plan"
+      },
+      {
+        "query": "What's my account ID again?",
+        "fact_to_store": null,
+        "gold_answer": "ACC-1009"
+      },
+      {
+        "query": "What issue did I originally contact you about?",
+        "fact_to_store": null,
+        "gold_answer": "billing error"
+      }
+    ]
+  }
+]

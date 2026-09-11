@@ -1,0 +1,57 @@
+[
+  "Python is a high-level programming language widely used for backend development, data science, machine learning, automation, and artificial intelligence. Python provides a simple syntax and a large ecosystem of libraries such as NumPy, pandas, PyTorch, and FastAPI.",
+
+  "FastAPI is a modern Python web framework designed for building high-performance APIs. It uses Python type hints for request validation and automatic API documentation. FastAPI is commonly used for machine learning inference services and backend applications.",
+
+  "Retrieval-Augmented Generation, commonly called RAG, combines information retrieval with a generative language model. A RAG system first retrieves relevant documents from a knowledge base and then provides those documents as context to the language model to generate a grounded response.",
+
+  "In a typical RAG pipeline, documents are divided into smaller chunks, converted into vector embeddings, stored in a vector index, and retrieved using semantic similarity. The retrieved chunks are then added to the prompt given to the language model.",
+
+  "FAISS is a library for efficient similarity search and clustering of dense vectors. It is frequently used in RAG systems to store and search embedding vectors. FAISS can perform nearest-neighbor search efficiently over large collections of vectors.",
+
+  "Vector embeddings represent text as numerical vectors in a high-dimensional space. Texts with similar meanings generally have embeddings that are close to each other according to a similarity metric such as cosine similarity or Euclidean distance.",
+
+  "Chunk size is an important parameter in a RAG system. Very small chunks may lose important context, while very large chunks may contain irrelevant information and increase the amount of context supplied to the language model. A suitable chunk size depends on the document structure and retrieval task.",
+
+  "Semantic search retrieves documents based on meaning rather than exact keyword matching. An embedding model converts both the query and documents into vectors, after which the system compares their vector representations to identify the most relevant documents.",
+
+  "A language model generates an answer based on the prompt and context provided to it. In a RAG architecture, retrieved documents can reduce the need for the model to rely entirely on information stored in its parameters and can help ground responses in an external knowledge base.",
+
+  "RAG evaluation can measure retrieval quality and generation quality separately. Retrieval metrics can include recall and precision, while generation evaluation can consider answer correctness, relevance, faithfulness, and whether the generated answer is supported by the retrieved context.",
+
+  "Caching can improve the performance of an AI application by avoiding repeated computation. For example, embeddings for documents can be cached so that the same documents do not need to be embedded every time the application starts.",
+
+  "Time to First Token, or TTFT, measures the time between sending a request to a language model and receiving the first generated token. TTFT is an important latency metric for interactive AI applications because users perceive faster first-token responses as more responsive.",
+
+  "Total latency measures the complete time required to process a request and generate the final response. A RAG application's total latency can include document retrieval time, embedding time, prompt construction time, model inference time, and network overhead.",
+
+  "A naive RAG pipeline usually follows a straightforward sequence: load documents, split them into chunks, generate embeddings, build a vector index, retrieve the most similar chunks for a query, construct a prompt, and generate an answer using a language model.",
+
+  "Hybrid retrieval combines multiple retrieval strategies, such as semantic vector search and keyword-based search. This approach can improve retrieval quality because semantic search captures meaning while keyword search can perform well for exact names, identifiers, technical terms, and rare words.",
+
+  "Python applications can use PostgreSQL as a relational database for storing structured application data. PostgreSQL supports transactions, indexes, constraints, and complex queries, making it suitable for production backend systems.",
+
+  "Machine learning inference is the process of using a trained model to produce predictions for new input data. In production systems, inference services commonly expose an API that accepts input data, runs the model, and returns predictions to the client application.",
+
+  "PyTorch is an open-source machine learning framework widely used for deep learning research and production applications. It provides tensor operations, automatic differentiation, GPU acceleration, and neural network building blocks.",
+
+  "Large language models are neural networks trained on large collections of text. They can perform tasks such as text generation, summarization, question answering, classification, translation, and code generation.",
+
+  "Prompt engineering involves designing instructions and context for a language model so that it produces useful and reliable outputs. In RAG systems, prompts commonly contain the user's question, retrieved context, and explicit instructions about how the model should use the context.",
+
+  "Grounded generation means generating an answer that is supported by provided source information. In a RAG system, grounding can be improved by instructing the language model to answer only from retrieved documents and to indicate when the available context does not contain enough information.",
+
+  "Document retrieval quality strongly affects the final quality of a RAG system. If the correct information is not retrieved, even a powerful language model may produce an incorrect or unsupported answer.",
+
+  "A vector database or vector index allows an application to search documents using numerical representations of their semantic meaning. Common architectures combine an embedding model with a vector store and a language model.",
+
+  "Conversation history can be used to provide context for multi-turn question answering. However, storing excessive conversation history increases prompt size and model latency, so practical systems often summarize, truncate, or selectively retrieve relevant previous messages.",
+
+  "A production RAG system should monitor latency, retrieval quality, model output quality, failures, token usage, and resource consumption. Logging these metrics makes it easier to identify bottlenecks and compare different RAG configurations.",
+
+  "Reducing unnecessary context can improve RAG efficiency. Retrieving too many documents may increase prompt length and inference cost while also introducing irrelevant information. A retrieval system should aim to provide a small set of highly relevant chunks.",
+
+  "RAG systems can be improved using reranking. A first-stage retriever retrieves a larger candidate set, and a reranker evaluates those candidates more precisely before selecting the final context supplied to the language model.",
+
+  "Synthetic datasets are useful for testing retrieval and generation pipelines because they provide controlled examples. A synthetic corpus can contain known facts, repeated topics, and queries designed to test retrieval accuracy, latency, caching, and answer consistency."
+]
