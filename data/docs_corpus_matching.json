@@ -1,0 +1,17 @@
+[
+  "Customer name is Rohan, subscribed to Pro Plan.",
+  "Customer is based in Chennai.",
+  "Customer account ID is ACC-1000.",
+  "Customer's open issue: feature request.",
+
+  "The Pro Plan includes priority support, advanced analytics, and up to 10 team seats. Pro Plan customers can request a plan review at any time.",
+  "Available plans for upgrade are Basic Plan, Pro Plan, Team Plan, and Enterprise Plan. Upgrading from Pro Plan to Team Plan adds unlimited seats and dedicated onboarding.",
+  "Refunds are typically processed within 5 to 7 business days after approval. Refund requests are reviewed by the billing team before being issued.",
+  "Invoices can be emailed to the account's registered billing email address on request. Customers can also download invoices directly from their account billing page.",
+  "Two-factor authentication is supported on all plans, including the Pro Plan. It can be enabled from the account security settings page.",
+  "Feature requests submitted by customers are reviewed by the product team on a quarterly basis. Customers are notified by email if their requested feature is scheduled for development.",
+  "Billing details, including customer city and account ID, are used to generate accurate invoices and apply regional tax rules.",
+  "Customer support is available Monday to Friday, 9 AM to 6 PM local time, for all plan tiers including the Pro Plan.",
+  "Mobile apps are available for both iOS and Android, and are included with every plan tier at no additional cost.",
+  "Account IDs follow the format ACC-XXXX and are assigned automatically when a customer's subscription is created."
+]

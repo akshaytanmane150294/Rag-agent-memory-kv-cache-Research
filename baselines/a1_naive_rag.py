@@ -274,6 +274,10 @@ def run(
 
         total_latency = t1 - t0
 
+        # Real cache-hit stats from vLLM's RequestOutput (verified via diagnostic.py)
+        real_prompt_tokens = len(outputs[0].prompt_token_ids)
+        real_cached_tokens = getattr(outputs[0], "num_cached_tokens", 0) or 0
+
         # ----------------------------------------------------
         # Print result
         # ----------------------------------------------------
@@ -290,14 +294,10 @@ def run(
         # Metrics
         # ----------------------------------------------------
 
-        # A1 has NO KV-cache reuse by design.
-        kv_tokens_reused = 0
+        # Real vLLM cache-hit count (should be 0, caching intentionally OFF for A1)
+        kv_tokens_reused = real_cached_tokens
 
-        # This is only a rough proxy because true tokenizer-level
-        # prompt token count requires using the model tokenizer.
-        kv_tokens_recomputed = len(
-            prompt.split()
-        )
+        kv_tokens_recomputed = real_prompt_tokens - real_cached_tokens
 
         # Gold-answer scoring is not implemented here.
         # Keep None unless your metrics implementation supports

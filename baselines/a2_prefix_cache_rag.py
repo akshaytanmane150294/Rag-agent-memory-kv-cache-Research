@@ -32,6 +32,13 @@ def run(docs: list[str], conversation: list[dict], run_name: str = "a2_prefix_ca
         retrieved = retrieve(query, embedder, index, docs)
         prompt = build_prompt(history, retrieved, query)
 
+        print()
+        print("=" * 70)
+        print(f"Turn {turn_id}")
+        print(f"Query: {query}")
+        print(f"Retrieved documents: {retrieved}")
+        print("=" * 70)
+
         t0 = time.time()
         outputs = llm.generate([prompt], SamplingParams(max_tokens=256, temperature=0.0, stop=["<END>", "[End of answer]", "\n\nQuestion:", "\n\n[Current question]"]))
         t1 = time.time()
@@ -39,10 +46,20 @@ def run(docs: list[str], conversation: list[dict], run_name: str = "a2_prefix_ca
         answer = outputs[0].outputs[0].text
         n_tokens = len(outputs[0].outputs[0].token_ids)
 
-        # TODO: pull real cache-hit stats from vLLM's metrics/Prometheus endpoint
-        # (e.g. `num_cached_tokens` from the request output) instead of this proxy.
-        prompt_tokens = len(prompt.split())
-        reused_est = prompt_tokens if turn_id > 0 else 0  # crude placeholder
+        # Real cache-hit stats from vLLM's RequestOutput (verified via diagnostic.py)
+        prompt_tokens = len(outputs[0].prompt_token_ids)
+        reused_est = getattr(outputs[0], "num_cached_tokens", 0) or 0
+
+        print()
+        print("Answer:")
+        print(answer)
+        gold = turn.get("gold_answer")
+        if gold:
+            print(f"(gold answer: {gold})")
+        print()
+        print(f"Generated tokens : {n_tokens}")
+        print(f"Latency          : {t1 - t0:.4f} sec")
+        print(f"Cached tokens    : {reused_est} / {prompt_tokens}")
 
         metrics.record(
             turn_id=turn_id,

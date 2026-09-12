@@ -35,6 +35,13 @@ def run(conversation: list[dict], run_name: str = "a3_agent_memory"):
         retrieved_memories = memory.read(query, k=5)
         prompt = build_prompt(history, retrieved=[], query=query, memories=retrieved_memories)
 
+        print()
+        print("=" * 70)
+        print(f"Turn {turn_id}")
+        print(f"Query: {query}")
+        print(f"Retrieved memories: {retrieved_memories}")
+        print("=" * 70)
+
         t0 = time.time()
         outputs = llm.generate([prompt], SamplingParams(max_tokens=256, temperature=0.0, stop=["<END>", "[End of answer]", "\n\nQuestion:", "\n\n[Current question]"]))
         t1 = time.time()
@@ -42,11 +49,22 @@ def run(conversation: list[dict], run_name: str = "a3_agent_memory"):
         answer = outputs[0].outputs[0].text
         n_tokens = len(outputs[0].outputs[0].token_ids)
 
-        prompt_tokens = len(prompt.split())
-        # NOTE: because retrieved memory order/content changes every turn,
-        # expect a LOWER reuse ratio here than A2 — this is the effect
-        # Gap 1 / Gap 2 are meant to fix.
-        reused_est = 0
+        print()
+        print("Answer:")
+        print(answer)
+        gold = turn.get("gold_answer")
+        if gold:
+            print(f"(gold answer: {gold})")
+        print()
+        print(f"Generated tokens : {n_tokens}")
+        print(f"Latency          : {t1 - t0:.4f} sec")
+
+        prompt_tokens = len(outputs[0].prompt_token_ids)
+        # Real cache-hit count from vLLM's RequestOutput (verified via diagnostic.py).
+        # Expect this to be LOWER than A2's because retrieved memory order/content
+        # changes every turn, breaking vLLM's exact-prefix-match caching -- this is
+        # the effect Gap 1 / Gap 2 are meant to fix.
+        reused_est = getattr(outputs[0], "num_cached_tokens", 0) or 0
 
         metrics.record(
             turn_id=turn_id,
@@ -54,7 +72,7 @@ def run(conversation: list[dict], run_name: str = "a3_agent_memory"):
             total_latency=t1 - t0,
             tokens_generated=n_tokens,
             kv_tokens_reused=reused_est,
-            kv_tokens_recomputed=prompt_tokens,
+            kv_tokens_recomputed=prompt_tokens - reused_est,
             answer_quality=None,  # TODO: score recall accuracy vs turn.get("gold_answer")
         )
 
