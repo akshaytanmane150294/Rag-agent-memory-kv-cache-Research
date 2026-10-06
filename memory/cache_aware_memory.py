@@ -39,4 +39,7 @@ def cache_aware_retrieve(
     for _, idx in top:
         tracker.mark_used(idx)
 
+    # Canonical order: sort selected memories by index so prompt prefix is stable across turns
+    top.sort(key=lambda x: x[1])
+
     return [memory.items[idx] for _, idx in top]

@@ -45,26 +45,41 @@ def run(conversation: list[dict], run_name: str = "gap1_cache_aware_retrieval",
         retrieved_memories = cache_aware_retrieve(query, memory, tracker, k=5, warm_bonus=warm_bonus)
         prompt = build_prompt(history, retrieved=[], query=query, memories=retrieved_memories)
 
+        print()
+        print("=" * 70)
+        print(f"Turn {turn_id}")
+        print(f"Query: {query}")
+        print(f"Retrieved memories: {retrieved_memories}")
+        print("=" * 70)
+
         t0 = time.time()
         outputs = llm.generate([prompt], SamplingParams(max_tokens=256, temperature=0.0, stop=["<END>", "[End of answer]", "\n\nQuestion:", "\n\n[Current question]"]))
         t1 = time.time()
 
         answer = outputs[0].outputs[0].text
-        prompt_tokens = len(prompt.split())
+        n_tokens = len(outputs[0].outputs[0].token_ids)
+        prompt_tokens = len(outputs[0].prompt_token_ids)
+        reused_est = getattr(outputs[0], "num_cached_tokens", 0) or 0
 
-        # TODO: pull real reuse stats; for now approximate reuse by how many
-        # retrieved memories were already warm before this call
-        warm_before = sum(1 for m in retrieved_memories if m in history)  # placeholder proxy
-        reused_est = int(prompt_tokens * (warm_before / max(1, len(retrieved_memories))))
+        print()
+        print("Answer:")
+        print(answer)
+        gold = turn.get("gold_answer")
+        if gold:
+            print(f"(gold answer: {gold})")
+        print()
+        print(f"Generated tokens : {n_tokens}")
+        print(f"Latency          : {t1 - t0:.4f} sec")
+        print(f"Cached tokens    : {reused_est} / {prompt_tokens}")
 
         metrics.record(
             turn_id=turn_id,
             ttft=t1 - t0,
             total_latency=t1 - t0,
-            tokens_generated=len(outputs[0].outputs[0].token_ids),
+            tokens_generated=n_tokens,
             kv_tokens_reused=reused_est,
             kv_tokens_recomputed=prompt_tokens - reused_est,
-            answer_quality=None,  # TODO: score vs gold, must stay >= A3's quality
+            answer_quality=None,
         )
 
         history.append(f"Q: {query}\nA: {answer}")
