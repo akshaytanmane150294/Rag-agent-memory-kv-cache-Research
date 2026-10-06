@@ -25,7 +25,14 @@ def run(conversation: list[dict], run_name: str = "a3_agent_memory"):
     """
     embedder = SentenceTransformer("all-MiniLM-L6-v2")
     memory = SimpleMemory(embedder)
-    llm = LLM(model=MODEL_PATH, enable_prefix_caching=True)
+    llm = LLM(
+        model=MODEL_PATH,
+        enable_prefix_caching=True,
+        dtype="half",
+        gpu_memory_utilization=0.85,
+        max_model_len=4096,
+        enforce_eager=True,
+    )
 
     metrics = RunMetrics(run_name)
     history: list[str] = []

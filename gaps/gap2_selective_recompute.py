@@ -24,7 +24,7 @@ from memory.simple_memory import SimpleMemory
 from common.metrics import RunMetrics
 from common.prompt_utils import build_prompt
 
-MODEL_PATH = "meta-llama/Llama-3.1-8B-Instruct"  # TODO
+MODEL_PATH = "Qwen/Qwen2.5-1.5B-Instruct"  # Colab/Kaggle T4-friendly default; matches baselines
 BOUNDARY_WINDOW = 8  # tokens recomputed at each chunk edge; ablate as % of chunk length
 
 
@@ -56,7 +56,14 @@ def run(conversation: list[dict], run_name: str = "gap2_selective_recompute",
 
     embedder = SentenceTransformer("all-MiniLM-L6-v2")
     memory = SimpleMemory(embedder)
-    llm = LLM(model=MODEL_PATH, enable_prefix_caching=True)
+    llm = LLM(
+        model=MODEL_PATH,
+        enable_prefix_caching=True,
+        dtype="half",
+        gpu_memory_utilization=0.85,
+        max_model_len=4096,
+        enforce_eager=True,
+    )
     kv_store: dict[int, dict] = {}
 
     metrics = RunMetrics(run_name)

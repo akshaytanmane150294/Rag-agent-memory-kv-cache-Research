@@ -43,7 +43,14 @@ def run(docs: list[str], conversation: list[dict], run_name: str = "a5_naive_ful
 
     embedder = SentenceTransformer("all-MiniLM-L6-v2")
     index = build_doc_index(docs, embedder)
-    llm = LLM(model=MODEL_PATH, enable_prefix_caching=True)
+    llm = LLM(
+        model=MODEL_PATH,
+        enable_prefix_caching=True,
+        dtype="half",
+        gpu_memory_utilization=0.85,
+        max_model_len=4096,
+        enforce_eager=True,
+    )
     kv_store = precompute_chunk_kv(docs, llm)
 
     metrics = RunMetrics(run_name)

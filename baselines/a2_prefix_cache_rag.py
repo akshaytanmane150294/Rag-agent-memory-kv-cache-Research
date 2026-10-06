@@ -22,7 +22,14 @@ MODEL_PATH = "Qwen/Qwen2.5-1.5B-Instruct"  # Colab T4-friendly default; swap for
 def run(docs: list[str], conversation: list[dict], run_name: str = "a2_prefix_cache_rag"):
     embedder = SentenceTransformer("all-MiniLM-L6-v2")
     index = build_doc_index(docs, embedder)
-    llm = LLM(model=MODEL_PATH, enable_prefix_caching=True)  # cache ON
+    llm = LLM(
+        model=MODEL_PATH,
+        enable_prefix_caching=True,  # cache ON
+        dtype="half",
+        gpu_memory_utilization=0.85,
+        max_model_len=4096,
+        enforce_eager=True,
+    )
 
     metrics = RunMetrics(run_name)
     history: list[str] = []

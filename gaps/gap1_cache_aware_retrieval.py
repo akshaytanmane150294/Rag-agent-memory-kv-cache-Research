@@ -19,7 +19,7 @@ from memory.cache_aware_memory import cache_aware_retrieve
 from common.metrics import RunMetrics
 from common.prompt_utils import build_prompt
 
-MODEL_PATH = "meta-llama/Llama-3.1-8B-Instruct"  # TODO
+MODEL_PATH = "Qwen/Qwen2.5-1.5B-Instruct"  # Colab/Kaggle T4-friendly default; matches baselines
 WARM_BONUS = 0.15  # ablate this: 0, 0.05, 0.15, 0.3 ...
 
 
@@ -28,7 +28,14 @@ def run(conversation: list[dict], run_name: str = "gap1_cache_aware_retrieval",
     embedder = SentenceTransformer("all-MiniLM-L6-v2")
     memory = SimpleMemory(embedder)
     tracker = CacheResidencyTracker(ttl_seconds=60.0)
-    llm = LLM(model=MODEL_PATH, enable_prefix_caching=True)
+    llm = LLM(
+        model=MODEL_PATH,
+        enable_prefix_caching=True,
+        dtype="half",
+        gpu_memory_utilization=0.85,
+        max_model_len=4096,
+        enforce_eager=True,
+    )
 
     metrics = RunMetrics(run_name)
     history: list[str] = []

@@ -19,26 +19,35 @@ GAPS = {
 }
 
 
-def load_conversation(data_path: str | None) -> list[dict]:
+def load_conversation(data_path: str | None, conversation_index: int = 0) -> list[dict]:
     if not data_path:
         return [
             {"query": "My favorite color is blue.", "fact_to_store": "User's favorite color is blue."},
             {"query": "What's my favorite color?"},
         ]
-    return json.loads(Path(data_path).read_text())
+    raw = json.loads(Path(data_path).read_text())
+
+    # Support two formats:
+    # 1) flat turn-list: [{"query": ..., "fact_to_store": ..., "gold_answer": ...}, ...]
+    # 2) per-conversation list (from generate_synthetic_dataset.py):
+    #    [{"conversation_id": 0, "turns": [...]}, {"conversation_id": 1, "turns": [...]}, ...]
+    if isinstance(raw, list) and raw and isinstance(raw[0], dict) and "turns" in raw[0]:
+        return raw[conversation_index]["turns"]
+    return raw
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--gap", required=True, choices=list(GAPS.keys()))
     parser.add_argument("--data", default=None, help="path to conversation JSON")
+    parser.add_argument("--conversation-index", type=int, default=0, help="which customer/session to run")
     parser.add_argument("--warm-bonus", type=float, default=None, help="Gap 1 ablation param")
     parser.add_argument("--boundary-window", type=int, default=None, help="Gap 2 ablation param")
     args = parser.parse_args()
 
     module_name = GAPS[args.gap]
     module = __import__(module_name, fromlist=["run"])
-    conversation = load_conversation(args.data)
+    conversation = load_conversation(args.data, args.conversation_index)
 
     kwargs = {}
     if args.gap == "gap1" and args.warm_bonus is not None:
